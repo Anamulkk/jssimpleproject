@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop and Length in JavaScript</title>
+</head>
+<body>
+
+<h1>Very Simple Example</h1>
+
+<p id="demo"></p>
+
+<!-- Example two -->
+
+    <h1>Names Character Count</h1>
+    <ul id="name-list"></ul>
+
+    <script>
+
+// Very  simple function to get the length with a Loop
+
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+
+
+let text = "";
+
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}
+document.getElementById("demo").innerHTML = text;
+
+
+// Example Two Script
+
+
+        // List of names
+        const names = ['Alice', 'Bob', 'Charlie', 'David', 'Eva'];
+
+        // Get the HTML element to display the list
+        const nameList = document.getElementById('name-list');
+
+        // Loop through the names array
+        for (let i = 0; i < names.length; i++) {
+            // Get the current name
+            const name = names[i];
+
+            // Calculate the length of the name
+            const charCount = name.length;
+
+            // Create a new list item
+            const listItem = document.createElement('li');
+
+            // Set the text content for the list item
+            listItem.textContent = `Name: ${name}, Characters: ${charCount}`;
+
+            // Append the list item to the name list in the HTML
+            nameList.appendChild(listItem);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

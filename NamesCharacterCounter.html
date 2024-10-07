@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names Character Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .char-count {
+            font-weight: bold;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Names Character Counter</h1>
+
+    <!-- Input for entering multiple names separated by commas -->
+    <input type="text" id="name-input" placeholder="Enter names separated by commas..." />
+
+    <!-- Button to add the names -->
+    <button onclick="addNames()">Add Names</button>
+
+    <!-- List to display names and their character counts -->
+    <ul id="name-list"></ul>
+
+    <script>
+        // Get references to the input and name list elements
+        const nameInput = document.getElementById('name-input');
+        const nameList = document.getElementById('name-list');
+
+        // Function to add multiple names
+        function addNames() {
+            // Get the input value and split names by comma
+            const inputNames = nameInput.value.trim().split(',');
+
+            // Loop through each name in the input
+            for (let i = 0; i < inputNames.length; i++) {
+                // Trim any extra whitespace around each name
+                const name = inputNames[i].trim();
+
+                // Check if the name is not empty
+                if (name) {
+                    // Calculate the length of the name
+                    const charCount = name.length;
+
+                    // Create a new list item
+                    const listItem = document.createElement('li');
+
+                    // Set the text content for the list item
+                    listItem.innerHTML = `Name: <span class="char-count">${name}</span>, Characters: <span class="char-count">${charCount}</span>`;
+
+                    // Append the list item to the name list in the HTML
+                    nameList.appendChild(listItem);
+                }
+            }
+
+            // Clear the input field for the next entry
+            nameInput.value = '';
+        }
+    </script>
+</body>
+</html>
